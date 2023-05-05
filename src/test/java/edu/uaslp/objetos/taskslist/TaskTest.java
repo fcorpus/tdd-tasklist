@@ -6,6 +6,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import java.time.LocalDateTime;
 import java.time.Month;
 
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TaskTest {
@@ -82,6 +83,14 @@ public class TaskTest {
 
         // When:
         // Then:
+        /*try {//polimorfismo
+            task.setDueDate(dateInThePast);
+        }catch(Exception exception){
+            assertThat(exception.getMessage()).isEqualTo("Due date is set in the past");
+            assertThat(exception).isInstanceOf(RuntimeException.class);//m1
+            assertThat(exception).isInstanceOf(TaskListException.class);//m1
+            org.junit.jupiter.api.Assertions.assertTrue(exception instanceof RuntimeException);//m2
+        }*/
         assertThatThrownBy(() -> task.setDueDate(dateInThePast))
                 .hasMessage("Due date is set in the past")
                 .isInstanceOf(TaskListException.class)

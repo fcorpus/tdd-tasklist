@@ -9,7 +9,7 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
-public class TaksListTest {
+public class TaskListTest {
 
     @Test
     public void givenANewTasksList_whenCreated_thenListIsEmpty() {
